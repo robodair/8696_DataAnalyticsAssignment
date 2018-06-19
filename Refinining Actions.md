@@ -15,6 +15,7 @@
 1. Changed blank Min Temp cell (date 2017-07-31T00:00:00Z) to '2' (Source: https://www.accuweather.com/en/au/canberra/21921/month/21921?monyr=7/01/2017)
 1. Change Wind Direction 9am for calm entries (0 wind speed) to "CALM"
 1. Change Wind Direction 3pm for calm entries (0 wind speed) to "CALM"
+1. Converted Maximum wind gust time to time from day start in minutes
 
 Refined data saved as `refined_data/Canberra070351_refined.csv`
 
