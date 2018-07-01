@@ -33,6 +33,8 @@ Created column 'Rainfall Tomorrow (mm)', which is the Rainfall column shifted up
 
 Derived 'RainTomorrow' column True/False from 'Rainfall Tomorrow (mm)' as this is required for classification validation.
 
+Create Column 'Rain Tomorrow Type' for rainfall type NONE/LOW/HIGH
+
 ## Discretization and Binarization
 
 ## Attribute Transformation
