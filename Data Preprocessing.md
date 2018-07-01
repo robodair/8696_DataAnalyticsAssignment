@@ -29,12 +29,24 @@ Differentials in 9am to 3pm measurements (earlier - latter) were created as the 
 
 The column 'Temperature Range' was created to store the difference between the maximum and minimum temperatures for the day.
 
-Created column 'Rainfall Tomorrow (mm)', which is the Rainfall column shifted up one cell, which might prove Useful for examining correlations.
-
-Derived 'RainTomorrow' column True/False from 'Rainfall Tomorrow (mm)' as this is required for classification validation.
-
-Create Column 'Rain Tomorrow Type' for rainfall type NONE/LOW/HIGH
-
 ## Discretization and Binarization
 
 ## Attribute Transformation
+
+## Target Columns
+
+Created column 'IGNORE Rainfall Tomorrow (mm)', which is the Rainfall column shifted up one cell, which might prove Useful for examining correlations.
+
+Derived 'TARGET Rain Tomorrow' column True/False from 'Rainfall Tomorrow (mm)' as this is required for classification validation.
+
+Create Column 'IGNORE Rain Tomorrow Intensity' for rainfall intensity NONE/LIGHT/MODERATE/HEAVY/VIOLENT
+
+Create Column 'IGNORE Light UP' for rainfall intensity True/False
+
+Create Column 'IGNORE Moderate UP' for rainfall intensity True/False
+
+Create Column 'IGNORE Heavy UP' for rainfall intensity True/False
+
+Create Column 'IGNORE Violent UP' for rainfall intensity True/False
+
+Create Column WEIGHT with weights inversely proportional to the count of each class in the dataset
