@@ -1,0 +1,105 @@
+======================================================================
+SUMMARY
+Model for predicting rainfall (or absence thereof) that is MODERATE or above
+======================================================================
+Summary of the Decision Tree model for Classification (built using 'rpart'):
+
+n= 251
+
+node), split, n, loss, yval, (yprob)
+      * denotes terminal node
+
+ 1) root 251 0.168319500 False (0.85384964 0.14615036)
+   2) MSL.pressure..hPa..3pm>=1011.25 197 0.062340550 False (0.93168576 0.06831424)
+     4) Relative.humidity.delta>=-7.5 194 0.043638380 False (0.95117949 0.04882051) *
+     5) Relative.humidity.delta< -7.5 3 0.000000000 True (0.00000000 1.00000000) *
+   3) MSL.pressure..hPa..3pm< 1011.25 54 0.055088160 True (0.55681705 0.44318295)
+     6) Cloud.amount..oktas..3pm< 1.5 25 0.012468110 False (0.87757419 0.12242581)
+      12) Relative.humidity.delta< 43.5 16 0.000000000 False (1.00000000 0.00000000) *
+      13) Relative.humidity.delta>=43.5 9 0.006395866 True (0.55355312 0.44644688) *
+     7) Cloud.amount..oktas..3pm>=1.5 29 0.018112090 True (0.31887692 0.68112308)
+      14) Wind.speed..km.h..9am< 14 14 0.014457310 True (0.58356817 0.41643183)
+        28) MSL.pressure..hPa..3pm< 1006.05 3 0.000000000 False (1.00000000 0.00000000) *
+        29) MSL.pressure..hPa..3pm>=1006.05 11 0.006395866 True (0.38269855 0.61730145) *
+      15) Wind.speed..km.h..9am>=14 15 0.003654781 True (0.11412044 0.88587956) *
+
+Classification tree:
+rpart(formula = IGNORE.Moderate.UP ~ ., data = crs$dataset[crs$train,
+    c(crs$input, crs$target)], weights = (crs$dataset$WEIGHT)[crs$train],
+    method = "class", parms = list(split = "information"), control = rpart.control(minsplit = 10,
+        minbucket = 3, maxdepth = 4, usesurrogate = 0, maxsurrogate = 0))
+
+Variables actually used in tree construction:
+[1] Cloud.amount..oktas..3pm
+[2] MSL.pressure..hPa..3pm
+[3] Relative.humidity.delta
+[4] Wind.speed..km.h..9am
+
+Root node error: 0.16832/251 = 0.0006706
+
+n= 251
+
+        CP nsplit rel error
+1 0.302346      0   1.00000
+2 0.145604      1   0.69765
+3 0.111111      2   0.55205
+4 0.036076      3   0.44094
+5 0.023947      4   0.40486
+6 0.010000      6   0.35697
+   xerror   xstd
+1 1.00000 2.0500
+2 0.82409 1.9275
+3 0.81131 1.9172
+4 0.75256 1.8672
+5 0.84931 1.9472
+6 0.85474 1.9514
+
+Time taken: 0.05 secs
+
+Rattle timestamp: 2018-07-03 21:43:43 dair
+
+
+======================================================================
+EVALUATE (VALIDATION)
+======================================================================
+
+Error matrix for the Decision Tree model on Canberra070351_refined.csv [validate] (counts):
+
+       Predicted
+Actual  False True Error
+  False    66    3   4.3
+  True      6    8  42.9
+
+Error matrix for the Decision Tree model on Canberra070351_refined.csv [validate] (proportions):
+
+       Predicted
+Actual  False True Error
+  False  79.5  3.6   4.3
+  True    7.2  9.6  42.9
+
+Overall error: 10.9%, Averaged class error: 23.6%
+
+Rattle timestamp: 2018-07-03 21:47:08 dair
+
+
+======================================================================
+EVALUATE (FULL)
+======================================================================
+Error matrix for the Decision Tree model on Canberra070351_refined.csv (counts):
+
+       Predicted
+Actual  False True Error
+  False   338   34   9.1
+  True     16   31  34.0
+
+Error matrix for the Decision Tree model on Canberra070351_refined.csv (proportions):
+
+       Predicted
+Actual  False True Error
+  False  80.7  8.1   9.1
+  True    3.8  7.4  34.0
+
+Overall error: 11.9%, Averaged class error: 21.55%
+
+Rattle timestamp: 2018-07-03 21:47:54 dair
+======================================================================
