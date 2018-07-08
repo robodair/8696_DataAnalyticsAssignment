@@ -33,20 +33,12 @@ The column 'Temperature Range' was created to store the difference between the m
 
 ## Attribute Transformation
 
-## Target Columns
+## Target Columns and Weights
 
 Created column 'IGNORE Rainfall Tomorrow (mm)', which is the Rainfall column shifted up one cell, which might prove Useful for examining correlations.
-
 Derived 'TARGET Rain Tomorrow' column True/False from 'Rainfall Tomorrow (mm)' as this is required for classification validation.
-
 Create Column 'IGNORE Rain Tomorrow Intensity' for rainfall intensity NONE/LIGHT/MODERATE/HEAVY/VIOLENT
-
-Create Column 'IGNORE Light UP' for rainfall intensity True/False
-
 Create Column 'IGNORE Moderate UP' for rainfall intensity True/False
 
-Create Column 'IGNORE Heavy UP' for rainfall intensity True/False
-
-Create Column 'IGNORE Violent UP' for rainfall intensity True/False
-
-Create Column WEIGHT with weights inversely proportional to the count of each class in the dataset
+Create Column 'WEIGHT Rain Tomorrow' with weights inversely proportional to the count of each 'TARGET Rain Tomorrow' class in the dataset
+Create Column 'WEIGHT Moderate UP' with weights inversely proportional to the count of each 'TARGET Moderate UP' class in the dataset

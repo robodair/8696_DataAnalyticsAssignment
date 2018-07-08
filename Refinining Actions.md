@@ -8,6 +8,9 @@
 | Blank Cloud Cover cells set to 0 | There were no 0 values, assumed that blanks are 0 |
 | Min Temp for 2017-07-31) = 2 | Data was missing, found data from alternative source: https://www.accuweather.com/en/au/canberra/21921/month/21921?monyr=7/01/2017 |
 | Convert Maximum wind gust time to minutes from 00:00 | Made column numerical, which makes sense for the continuous value that time is |
+| Drop Column 'Direction of maximum wind gust ' | Decided not to use column because there are missing values |
+| Drop Column 'Speed of maximum wind gust (km/h)'| Decided not to use column because there are missing values |
+| Drop Column 'Time of maximum wind gust' | Decided not to use column because there are missing values |
 
 Other Notes:
 - 9 Days have no maximum wind gust data - left cells blank
